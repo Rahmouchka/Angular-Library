@@ -8,7 +8,7 @@ const routes: Routes = [
   //fergha path khater 3ibara ala page d'acceuil lel module hedha nhebouha tji par défaut book list
   {path:"",component:BookListComponent},
   {path:"add",component:BookAddComponent},
-  {path:"edit",component:BookEditComponent}
+  {path:"edit/:id",component:BookEditComponent}
 ];
 
 @NgModule({

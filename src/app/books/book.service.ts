@@ -25,4 +25,7 @@ export class BookService {
     );
     this.books=[...this.books,newBook]
   }
+  getBookById(id: number) : Book | undefined{
+    return this.books.find(book=>book.id === id)
+  }
 }
