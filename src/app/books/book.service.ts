@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,9 @@ export class BookService {
     new Book(2,"Atomic Habits 2","James Clear",25),
     new Book(3,"Atomic Habits 3","James Clear",45)
   ];
+
+  booksEdited=new Subject<Book[]>;
+
   constructor() { }
   getBooks(){
     //return this.books;
@@ -34,5 +38,10 @@ export class BookService {
     this.books=this.books.map(
       b=>b.id === book.id?book:b
     )
+  }
+
+  deleteBook(id:number){
+    this.books = this.books.filter(book=>book.id!==id);
+    this.booksEdited.next([...this.books]);
   }
 }

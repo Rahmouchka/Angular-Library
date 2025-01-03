@@ -12,7 +12,16 @@ export class BookListComponent implements OnInit {
   
   constructor(private bookService: BookService){}
 
+  deleteBook(id:number){
+    if(confirm("Êtes-vous sûre de vouloir supprimer ce livre?"))
+    {this.bookService.deleteBook(id);}
+    //this.books=this.bookService.getBooks();
+  }
+
   ngOnInit(): void {
     this.books=this.bookService.getBooks();
+    this.bookService.booksEdited.subscribe(
+      newBooks=> this.books=newBooks
+    )
   }
 }
