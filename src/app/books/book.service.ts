@@ -15,7 +15,7 @@ export class BookService {
   booksEdited=new Subject<Book[]>;
 
   constructor() { }
-  getBooks(){
+  getBooks():Book[]{
     //return this.books;
     //c mieux nraj3elha copie mtaa tableau snn khsart encapsulation
     return [...this.books];
