@@ -1,0 +1,28 @@
+<h2>Ajout d'un nouveau livre:</h2>
+<form id="addForm" (ngSubmit)="addBook(f)" #f="ngForm">
+    <div class="mb-3">
+      <label for="title" class="form-label">Titre*</label>
+      <input type="text" class="form-control" name="title" #title="ngModel" ngModel required/>
+      @if (title.invalid && title.touched) {
+        <span class="error">ce champs est obligatoire</span>
+      }
+    </div>
+    <div class="mb-3">
+      <label for="author" class="form-label">Auteur*</label>
+      <input type="text" class="form-control" name="author" #author="ngModel" ngModel required/>
+      @if (author.invalid && author.touched) {
+        <span class="error">ce champs est obligatoire</span>
+      }     
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Prix*</label>
+      <input type="number" class="form-control" name="price" #price="ngModel" ngModel required/>
+      @if (price.invalid && price.touched) {
+        <span class="error">ce champs est obligatoire</span>
+      }
+    </div>
+    <button type="submit" name="btnValidAdd"
+    class="btn btn-warning" [disabled]="f.invalid"
+    >Valider</button>
+    <div>*:Champs obligatoires</div>
+</form>
